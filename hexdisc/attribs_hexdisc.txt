@@ -1,0 +1,5 @@
+2-D Hexagon Disc Geometry
+
+Perimeter: 6.0000000000e+00
+Area: 2.5980762114e+00
+Perimeter-area ratio:    2.3094010768

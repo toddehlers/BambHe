@@ -1,0 +1,6 @@
+3-D Unit Ball Geometry
+
+Surface area: 1.2566370614e+01
+Volume: 4.1887902048e+00
+Surface area-volume ratio:    3.0000000000
+Perimeter: 6.2831853072e+00

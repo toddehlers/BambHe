@@ -1,0 +1,240 @@
+$ bambHe input file
+$ Comments can be added by starting the line with a dollar sign
+
+
+$ (Input 1) File name containing time and temperature history to be used
+
+stepheat_hist.dat
+
+
+$ (Input 2) The number of timesteps wanted (nt). The program will read in
+$ the thermal history and linearly interpolate the values onto (nt) uniformly
+$ spaced timesteps
+
+20
+
+$ (Input 3-1) Flag for diffusion kinetics (D0 and Ea)
+$ 1=Farley,2000
+$ 2=User specified diffusivity and activation energy use D0 in m2/s, Ea in J/mol.
+
+1
+
+
+$ (Input 3-2) If custom user specified diffusivity and
+$ activation energy is specified then list D0 and Ea below
+$ D0:
+1.0
+
+$ Ea:
+1.0
+
+$ (Input 4) Option for alpha ejection
+$ 1=Uses alpha ejection (turned on)
+$ 0=Alpha ejection turned off
+
+0
+
+$ (Input 5) Flag for diffusion
+$ 0=No diffusion. The concentrations are a product of production rate and time
+$ 1=Diffusion. Program runs normally with finite element solution.
+$ Note: If the thermal history uses subzero temperatures, then the no diffusion
+$ option is most likely wanted
+
+1
+
+$ (Input 5-1) Numerical stability variable: Minimum scaled diffusivity value for 
+$ diffusion to occur. The scaled diffusivity is calcuated by:
+$ D_scaled = (D_unscaled * maximum_simulation_time) / radius^2 [unitless]
+$ All diffusivities evaluted below this threshold will shut off diffusion to maintain
+$ numreical stability andcause the concentrations
+$ to be calculated as a product of production rate and time.
+$ If diffusion flag above is set to 0, this value is disregarded but there
+$ still needs to be a value below.
+$ Recommended values to use are ~1.0e-3 (or maybe slightly smaller).
+
+1.0e-3
+
+
+$ NOTE:  Source term (U, Th) are set to a fixed value in the code.  Units don't need to be tracked for this.
+$ Similarly, the predicted concentration units are based on the Ea units.
+
+$ ******************************************************************
+$ NOTE:  This ends most user input.  Remaining input below only
+$ needs to be changed if (a) you change the mesh used with the matlab
+$ mesh generation programs, and/or (b) you want change the initial He 
+$ concentration in the domain used in the simulation.
+
+$ (Input 6-1) Flag for spherical solution calculation
+$ 0=No calculation of spherical geometry
+$ 1=Calculation of spherical solution and user specifies value
+$ at Input 6-2 for initial Helium concentrations
+$ 2=Calculation of spherical solution and user specifies file
+$ below for initial Helium Concentrations in Input 6-2.
+
+1
+
+$ (Input 6-2) Initial Helium concentration for sphere
+$ Number value=Sets the He concentration of all nodes
+$ in the sphere to be that value initially
+$ Alternatively - specify a fileaname from a previous simulation
+$ to have it read in as an initial condition.
+$ Filename=Reads in bambHe output file and sets the He
+$ concentration of nodes to be values in the file
+
+1e10
+
+$ (Input 6-3) Radius of sphere in meters for calculating the
+$ Ft correction.  Note - changing this number does not change 
+$ the radius of the sphere, it only changes the distance over
+$ which alpha ejection is calculated.
+
+$50.189e-6
+60.0e-6
+$2.4e-2
+
+
+$ (Input 7-1) Flag for hexagonal cylinder solution calculation
+$ with height to width ratio of 1:1
+$ 0=No calculation of cylinder geometry
+$ 1=Calculation of spherical solution and user specifies value
+$ at Input 7-2 for initial Helium concentrations
+$ 2=Calculation of spherical solution and user specifies file
+$ at Input 7-2 for initial Helium Concentrations
+
+1
+
+$ (Input 7-2) Initial Helium concentration for hexagonal cylinder
+$ Number value=Sets the He concentration of all nodes
+$ in the cylinder to be that value initially
+$ Alternatively - specify a fileaname from a previous simulation
+$ to have it read in as an initial condition.
+$ Filename=Reads in bambHe output file and sets the He
+$ concentration of nodes to be values in the file
+
+1e10
+
+$ (Input 7-3)
+$ Line 1: Amplification factor for x and y values. This value should
+$ match the value of a in convert_hexcyliner_main.m in the hexcylinder/matlabmesh 
+$ files directory (default value below mactches what is already in this file).
+$ Line 2: Height of cylinder in meters. This defined the aspect ratio of the cylinder
+$ used in the same matlab file mentioned above.  Do not change unless you also change
+$ it in the matlab file.
+47.e-6
+94.e-6
+
+
+$ (Input 8-1) Flag for hexagonal cylinder solution calculation
+$ with height to width ratio of 2:1
+$ 0=No calculation of cylinder geometry
+$ 1=Calculation of spherical solution and user specifies value
+$ at Input 8-2 for initial Helium concentrations
+$ 2=Calculation of spherical solution and user specifies file
+$ at Input 8-2 for initial Helium Concentrations
+
+1
+
+$ (Input 8-2) Initial Helium concentration for hexagonal cylinder
+$ Number value=Sets the He concentration of all nodes
+$ in the cylinder to be that value initially
+$ Alternatively - specify a fileaname from a previous simulation
+$ to have it read in as an initial condition.
+$ Filename=Reads in bambHe output file and sets the He
+$ concentration of nodes to be values in the file
+
+1e10
+
+$ (Input 8-3)
+$ Line 1: Amplification factor for x and y values. This value should
+$ match the value of a in convert_hexcyliner_main.m in the hexcylinder/matlabmesh 
+$ files directory (default value below mactches what is already in this file).
+$ Line 2: Height of cylinder in meters. This defined the aspect ratio of the cylinder
+$ used in the same matlab file mentioned above.  Do not change unless you also change
+$ it in the matlab file.
+47.e-6
+188.e-6
+
+
+$ (Input 9-1) Flag for hexagonal cylinder solution calculation
+$ with height to width ratio of 3:1
+$ 0=No calculation of cylinder geometry
+$ 1=Calculation of spherical solution and user specifies value
+$ at Input 9-2 for initial Helium concentrations
+$ 2=Calculation of spherical solution and user specifies file
+$ at Input 9-2 for initial Helium Concentrations
+
+1
+
+$ (Input 9-2) Initial Helium concentration for hexagonal cylinder
+$ Number value=Sets the He concentration of all nodes
+$ in the cylinder to be that value initially
+$ Alternatively - specify a fileaname from a previous simulation
+$ to have it read in as an initial condition.
+$ Filename=Reads in bambHe output file and sets the He
+$ concentration of nodes to be values in the file
+
+1e10
+
+$ (Input 9-3)
+$ Line 1: Amplification factor for x and y values. This value should
+$ match the value of a in convert_hexcyliner_main.m in the hexcylinder/matlabmesh 
+$ files directory (default value below mactches what is already in this file).
+$ Line 2: Height of cylinder in meters. This defined the aspect ratio of the cylinder
+$ used in the same matlab file mentioned above.  Do not change unless you also change
+$ it in the matlab file.
+47e-6
+282.e-6
+
+
+$ (Input 10-1) Flag for round disc solution calculation
+$ 0=No calculation of round disc geometry
+$ 1=Calculation of spherical solution and user specifies value
+$ at Input 10-2 for initial Helium concentrations
+$ 2=Calculation of spherical solution and user specifies file
+$ at Input 10-2 for initial Helium Concentrations
+
+1
+
+$ (Input 10-2) Initial Helium concentration for round disc
+$ Number value=Sets the He concentration of all nodes
+$ in the round disc to be that value initially.
+$ Alternatively - specify a fileaname from a previous simulation
+$ to have it read in as an initial condition.
+$ Filename=Reads in bambHe output file and sets the He
+$ concentration of nodes to be values in the file
+
+1e10
+
+$ (Input 10-3) Radius of round disc in meters.  This value should
+$ match the value used in the mesh generation with the .m file.  Do 
+$ not change unless you also change it in the matlab file.
+
+46.4e-6
+
+
+$ (Input 11-1) Flag for hexagonal disc solution calculation
+$ 0=No calculation of hexagonal disc geometry
+$ 1=Calculation of spherical solution and user specifies value
+$ at Input 11-2 for initial Helium concentrations
+$ 2=Calculation of spherical solution and user specifies file
+$ at input 11-2 for initial Helium Concentrations
+
+1
+
+$ (Input 11-2) Initial Helium concentration for hexagonal disc
+$ Number value=Sets the He concentration of all nodes
+$ in the hexagonal disc to be that value initially
+$ Alternatively - specify a fileaname from a previous simulation
+$ to have it read in as an initial condition.
+$ Filename=Reads in bambHe output file and sets the He
+$ concentration of nodes to be values in the file
+
+1e10
+
+
+$ (Input 11-3) Amplification factor for x and y values of
+$ hexagonal disc.  This value should match the value used for mesh
+$ generation with the matlab mesh generation program.  Do not change this
+$ value unless you also change it in the matlab code and regenerate the matlab mesh.
+
+53.578e-6

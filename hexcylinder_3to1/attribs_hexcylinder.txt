@@ -1,0 +1,6 @@
+3-D Hexagon Cylinder Geometry
+
+Surface area: 1.7196152423e+01
+Volume: 5.1961524227e+00
+Surface area-volume ratio:    3.3094010768
+Perimeter: 6.0000000000e+00
